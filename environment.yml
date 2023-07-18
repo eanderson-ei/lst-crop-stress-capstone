@@ -11,4 +11,3 @@ dependencies:
   - pystac-client
   - contextily
   - seaborn
-prefix: C:\Users\Erik_Anderson\miniconda3\envs\ea-lst
