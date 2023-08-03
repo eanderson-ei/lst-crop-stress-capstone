@@ -1,0 +1,13 @@
+name: ea-lst-alpha
+channels:
+  - defaults
+dependencies:
+  - python
+  - herbie-data
+  - geopandas
+  - odc-stac
+  - rioxarray
+  - ipykernel
+  - pystac-client
+  - seaborn
+prefix: /opt/miniconda3/envs/ea-lst-alpha
