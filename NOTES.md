@@ -126,3 +126,11 @@ config_object.getlist('METPOINTS', 'corn')
   - Key Finding: No expected relationship vs VPD
 - 
 
+```bash
+!jupyter nbconvert \
+    --to html /workspaces/*.ipynb \
+    --output my_blog_post \
+    --no-input \
+    --TagRemovePreprocessor.remove_cell_tags='{"remove_cell"}'
+```
+
