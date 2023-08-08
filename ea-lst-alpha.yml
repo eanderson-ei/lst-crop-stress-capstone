@@ -1,13 +1,13 @@
-name: ea-lst
+name: ea-lst-alpha
 channels:
-  - conda-forge
   - defaults
 dependencies:
   - python
+  - herbie-data
   - geopandas
   - odc-stac
   - rioxarray
   - ipykernel
   - pystac-client
-  - contextily
   - seaborn
+prefix: /opt/miniconda3/envs/ea-lst-alpha
