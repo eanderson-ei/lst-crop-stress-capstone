@@ -5,7 +5,7 @@ prepped_inputs_mod21a1d_evaluation - MODIS Land Surface Temperature MOD21
 pydms_sharpened_modis_evaluation - Sharpened LST using MODIS surface reflectance and LST
 prepped_inputs_s2_test_mappings - Sentinel-2 Surface Reflectance
 pydms_sharpened_ecostress - Sharpened LST using Sentinel-2 and ECOSTRESS
-prepped_inputs_s2 - Sentinel-2 Surface Reflectance
+*prepped_inputs_s2 - Sentinel-2 Surface Reflectance
 starfm_predictions_modis_ecostress_test_mappings - Predicted LST using MODIS and ECOSTRESS
 prepped_inputs_ecostress_test_mappings - ECOSTRESS Land Surface Temperature
 starfm_predictions_viirs_landsat - Predicted LST using VIIRS and Landsat 8 or Landsat 9
@@ -24,7 +24,7 @@ prepped_inputs_ecostress_test_new_cols - ECOSTRESS Land Surface Temperature
 prepped_inputs_vnp21a1d_test_new_cols - VIIRS Land Surface Temperature VNP21
 prepped_inputs_mod21a1d_test_mappings - MODIS Land Surface Temperature MOD21
 pydms_sharpened_ecostress_evaluation - Sharpened LST using Sentinel-2 and ECOSTRESS
-pydms_sharpened_modis - Sharpened LST using MODIS surface reflectance and LST
+*pydms_sharpened_modis - Sharpened LST using MODIS surface reflectance and LST
 starfm_predictions_modis_ecostress - Predicted LST using MODIS and ECOSTRESS
 starfm_predictions_modis_s2_evaluation - Predicted Surface Reflectance using VIIRS and Sentinel-2
 prepped_inputs_ecostress_evaluation - ECOSTRESS Land Surface Temperature
@@ -35,16 +35,16 @@ starfm_predictions_modis_ecostress_test_delete - Predicted LST using MODIS and E
 prepped_inputs_landsat_test_delete - Landsat 8 or Landsat 9 Surface Temperature
 prepped_inputs_mod21a1d_test_delete - MODIS Land Surface Temperature MOD21
 prepped_inputs_s2_test_new_cols - Sentinel-2 Surface Reflectance
-prepped_inputs_mod21a1d - MODIS Land Surface Temperature MOD21
-prepped_inputs_mcd43a4 - MODIS Surface Reflectance MCD43
+*prepped_inputs_mod21a1d - MODIS Land Surface Temperature MOD21
+*prepped_inputs_mcd43a4 - MODIS Surface Reflectance MCD43
 pydms_sharpened_landsat_evaluation - Sharpened LST using Sentinel-2 and Landsat 8, or Sentinel-2 and Landsat 9
 pydms_sharpened_viirs_test_mappings - Sharpened LST using VIIRS surface reflectance and LST
-prepped_inputs_landsat - Landsat 8 or Landsat 9 Surface Temperature
+*prepped_inputs_landsat - Landsat 8 or Landsat 9 Surface Temperature
 starfm_predictions_viirs_landsat_test_mappings - Predicted LST using VIIRS and Landsat 8 or Landsat 9
 starfm_predictions_modis_landsat_test_mappings - Predicted LST using MODIS and Landsat 8 or Landsat 9
-starfm_predictions_modis_landsat - Predicted LST using MODIS and Landsat 8 or Landsat 9
+*starfm_predictions_modis_landsat - Predicted LST using MODIS and Landsat 8 or Landsat 9
 prepped_inputs_vnp43ia4_test_mappings - VIIRS Surface Reflectance VNP43IA4
-starfm_predictions_modis_s2 - Predicted Surface Reflectance using VIIRS and Sentinel-2
+*starfm_predictions_modis_s2 - Predicted Surface Reflectance using VIIRS and Sentinel-2
 starfm_predictions_viirs_ecostress - Predicted LST using VIIRS and ECOSTRESS
 prepped_inputs_landsat_evaluation - Landsat 8 or Landsat 9 Surface Temperature
 prepped_inputs_vnp21a1d_test_run - VIIRS Land Surface Temperature VNP21
@@ -66,7 +66,7 @@ prepped_inputs_vnp43ia4_test_new_cols - VIIRS Surface Reflectance VNP43IA4
 pydms_sharpened_ecostress_test_mappings - Sharpened LST using Sentinel-2 and ECOSTRESS
 pydms_sharpened_modis_test_run - Sharpened LST using MODIS surface reflectance and LST
 pydms_sharpened_ecostress_test_run - Sharpened LST using Sentinel-2 and ECOSTRESS
-prepped_inputs_vnp21a1d - VIIRS Land Surface Temperature VNP21
+*prepped_inputs_vnp21a1d - VIIRS Land Surface Temperature VNP21
 starfm_predictions_viirs_landsat_evaluation - Predicted LST using VIIRS and Landsat 8 or Landsat 9
 starfm_predictions_viirs_ecostress_test_mappings - Predicted LST using VIIRS and ECOSTRESS
 starfm_predictions_modis_s2_test_mappings - Predicted Surface Reflectance using VIIRS and Sentinel-2
@@ -80,15 +80,15 @@ starfm_predictions_modis_ecostress_test_new_cols - Predicted LST using MODIS and
 starfm_predictions_modis_s2_test_new_cols - Predicted Surface Reflectance using VIIRS and Sentinel-2
 prepped_inputs_mcd43a4_test_new_cols - MODIS Surface Reflectance MCD43
 pydms_sharpened_modis_test_mappings - Sharpened LST using MODIS surface reflectance and LST
-pydms_sharpened_landsat - Sharpened LST using Sentinel-2 and Landsat 8, or Sentinel-2 and Landsat 9
+*pydms_sharpened_landsat - Sharpened LST using Sentinel-2 and Landsat 8, or Sentinel-2 and Landsat 9
 pydms_sharpened_viirs_evaluation - Sharpened LST using VIIRS surface reflectance and LST
 pydms_sharpened_viirs_test_run - Sharpened LST using VIIRS surface reflectance and LST
 prepped_inputs_s2_evaluation - Sentinel-2 Surface Reflectance
-pydms_sharpened_viirs - Sharpened LST using VIIRS surface reflectance and LST
+*pydms_sharpened_viirs - Sharpened LST using VIIRS surface reflectance and LST
 starfm_predictions_modis_landsat_evaluation - Predicted LST using MODIS and Landsat 8 or Landsat 9
 starfm_predictions_modis_ecostress_test_run - Predicted LST using MODIS and ECOSTRESS
 starfm_predictions_viirs_ecostress_test_run - Predicted LST using VIIRS and ECOSTRESS
-prepped_inputs_vnp43ia4 - VIIRS Surface Reflectance VNP43IA4
+*prepped_inputs_vnp43ia4 - VIIRS Surface Reflectance VNP43IA4
 prepped_inputs_vnp21a1d_test_mappings - VIIRS Land Surface Temperature VNP21
 prepped_inputs_landsat_test_run - Landsat 8 or Landsat 9 Surface Temperature
 prepped_inputs_mcd43a4_test_delete - MODIS Surface Reflectance MCD43

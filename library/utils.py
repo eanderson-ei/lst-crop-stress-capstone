@@ -1,12 +1,16 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
+import rasterio
+import rioxarray as rxr
+from shapely.geometry import Point, Polygon, mapping
+import xarray as xr
 
 from library.FH_Hydrosat import FH_Hydrosat
 
 
-def read_ameriflux(data_path, header=0, na_values=[-9999]):
+def read_ameriflux(data_path, header=0, na_values=[-9999], utc_offset=7):
     """
     Reads a standard Ameriflux data file as csv.
 
@@ -21,6 +25,8 @@ def read_ameriflux(data_path, header=0, na_values=[-9999]):
         Row in which header is found
     na_values: list
         List of null values for the dataset
+    utc_offset: int
+        Number of hours offset from UTC dataset is in
     
     Returns
     -------
@@ -43,6 +49,12 @@ def read_ameriflux(data_path, header=0, na_values=[-9999]):
     df['end'] = df['TIMESTAMP_END'].apply(
         lambda x: datetime.strptime(str(x), "%Y%m%d%H%M.0")
         )
+    
+    # Convert to UTC time
+    df['start'] = df['start'] + timedelta(hours=utc_offset)
+    df['end'] = df['end'] + timedelta(hours=utc_offset)
+    df['start'] = df['start'].dt.tz_localize('UTC')
+    df['end'] = df['end'].dt.tz_localize('UTC')
 
     # Drop NA
     df = df.dropna(subset=value_cols, how='all')
@@ -53,6 +65,83 @@ def read_ameriflux(data_path, header=0, na_values=[-9999]):
     df = df[col_order]
 
     return df
+
+
+def connect_to_collection(catalog, aoi, collection, start_date, end_date):
+    if type(aoi) == Point:
+        search = catalog.search(
+            collections=collection,
+            intersects=aoi,
+            datetime=[start_date, end_date],
+            max_items=1000
+        )
+    elif type(aoi) == Polygon:
+        search = catalog.search(
+            collections=collection,
+            aoi=aoi,
+            datetime=[start_date, end_date],
+            max_items=1000
+        )
+
+    return search.item_collection()
+
+
+def read_and_clip_items(items, asset, clip_gdf, dims=("band", "y", "x")):
+    itemjson = items.to_dict()
+    features = itemjson['features']
+
+    asset_list = {
+        f["properties"]["datetime"] : f["assets"][asset]["href"] 
+        for f in features
+        }
+
+    da_list = []
+
+    for timestamp in sorted(asset_list.keys()):   
+        filepath = asset_list[timestamp]
+        with rasterio.open(filepath) as src:
+            out_image, out_transform = rasterio.mask.mask(
+                src, clip_gdf.geometry.apply(mapping), crop=True)
+            out_meta = src.meta
+
+        # Update metadata after mask
+        out_meta.update({"driver": "GTiff",
+                        "height": out_image.shape[1],
+                        "width": out_image.shape[2],
+                        "transform": out_transform})
+        try:
+            timestamp_naive = datetime.strptime(
+                timestamp, "%Y-%m-%dT%H:%M:%S.%fZ")
+        except(ValueError):
+            timestamp_naive = datetime.strptime(
+                timestamp, "%Y-%m-%dT%H:%M:%SZ")
+
+        # Assign coordinate values from out_meta
+        coords = {
+            "x": out_meta["transform"].c + out_meta["transform"].a 
+            * np.arange(out_meta["width"]),
+            "y": out_meta["transform"].f + out_meta["transform"].e 
+            * np.arange(out_meta["height"]),
+            "time": timestamp_naive
+        }
+
+        # Create a new DataArray with updated coordinates
+        da = xr.DataArray(
+            out_image.squeeze(),
+            coords=coords,
+            dims=dims,
+        )
+
+        # Append to da_list
+        da_list.append(da)
+
+    # Concatenate all data arrays
+    rio_clip = xr.concat(da_list, dim='time')
+
+    # Set the CRS (Coordinate Reference System) for the DataArray
+    rio_clip = rio_clip.rio.set_crs(out_meta["crs"])
+
+    return rio_clip
 
 
 def ndvi_from_collection(items, geom_point, tolerance, red_band, nir_band, 

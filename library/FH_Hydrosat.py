@@ -529,7 +529,7 @@ class FH_Hydrosat(object):
             sample_func = partial(self._extract_point_val_window, set_x=set_x, set_y=set_y, tol=tol, pad=pad, band=band)
 
         with mp.get_context("spawn").Pool(nproc) as pool:
-            print(f'using {nproc} processes to sample {len(self.item_href)} assets')
+            # print(f'using {nproc} processes to sample {len(self.item_href)} assets')
             vals = pool.map(sample_func, self.item_href)
             
         return list(vals)
