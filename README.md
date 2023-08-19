@@ -73,5 +73,5 @@ To convert the file `blog.ipynb` to an HTML report, you must have the library `n
 Use the following bash command to convert the notebook:
 
 ```bash
-jupyter nbconvert --to html_embed --no-input notebook-name.ipynb
+jupyter nbconvert --to html_embed --no-input blog.ipynb
 ```
