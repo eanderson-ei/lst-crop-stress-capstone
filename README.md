@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/627146632.svg)](https://zenodo.org/badge/latestdoi/627146632)
 # Remotely Sensed Crop Stress Early Indicator
 
 Can satellite remote sensing detect early stage crop stress at high resolution across whole-farm scale?
@@ -12,8 +13,6 @@ See the blog post [here](https://eriktuck.github.io/lst-crop-stress-capstone/).
 - [Tyler Cruickshank](https://github.com/tcruicks)
 - [Joe McGlinchy](https://github.com/joemcglinchy)
 We thank Joe McGlinchy of Hydrosat for providing project guidance and data access.
-
-[![DOI](https://zenodo.org/badge/627146632.svg)](https://zenodo.org/badge/latestdoi/627146632)
 
 # Environment
 To reproduce this workflow, use the provided `environment.yml` file to create a `conda` environment (you should already have Python and `conda` installed on your system).
