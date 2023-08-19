@@ -54,7 +54,7 @@ Follow the instructions below to reproduce the workflows in the notebook `blog.i
 ## Run the analysis
 To reproduce the analysis in `blog.ipynb`, first follow the instructions to set up the environment and access data, described above. 
 
-Open the file `blog.ipynb` in a Jupyter Notebook and run all cells to repeat the analysis. To change the crop locations for the analysis of NDVI (`f1`) and the analysis of CATD (`f2`), change the `f1_met_tower` and `f2_met_tower` variables. For information on how to launch a Jupyter Notebook, consult the documentation [here](https://jupyter.org/).
+Open the file `blog.ipynb` in a Jupyter Notebook and run all cells to repeat the analysis. To change the crop locations for the analysis of NDVI (`f1`) and the analysis of CATD (`f2`), change the `f1_met_tower` and `f2_met_tower` variables (see Configuration below to add your own locations). For information on how to launch a Jupyter Notebook, consult the documentation [here](https://jupyter.org/).
 
 ## Configuration
 
