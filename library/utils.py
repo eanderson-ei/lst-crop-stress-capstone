@@ -68,6 +68,27 @@ def read_ameriflux(data_path, header=0, na_values=[-9999], utc_offset=7):
 
 
 def connect_to_collection(catalog, aoi, collection, start_date, end_date):
+    """
+    Connnects to a STAC collection.
+
+    Parameters
+    ----------
+    catalog: STAC catalog connection object
+        Catalog item
+    aoi: Point or Polygon
+        shapely point or polygon for area to search
+    collection: str or list
+        Name of collection(s) to include
+    start_date: str
+        Start date of period of interest 
+    end_date: str
+        End date of period of interest
+    
+    Returns
+    -------
+    Dictionary
+        Dictionary of items returned
+    """
     if type(aoi) == Point:
         search = catalog.search(
             collections=collection,
@@ -87,6 +108,27 @@ def connect_to_collection(catalog, aoi, collection, start_date, end_date):
 
 
 def read_and_clip_items(items, asset, clip_gdf, dims=("band", "y", "x")):
+    """
+    Clips imagery to a defined area of interest.
+
+    Uses rasterio for faster processing than rioxarray.
+
+    Parameters
+    ----------
+    items: dict
+        Dictionary of items returned from STAC catalog
+    asset: str
+        Name of asset from items to clip
+    clip_gdf: GeoDataFrame
+        GeoDataFrame containing the clip area
+    dims: tuple
+        Dimensions to assign to resulting Data Array
+    
+    Returns
+    -------
+    Data Array
+        The clipped asset as an xarray Data Array
+    """
     itemjson = items.to_dict()
     features = itemjson['features']
 
@@ -146,6 +188,29 @@ def read_and_clip_items(items, asset, clip_gdf, dims=("band", "y", "x")):
 
 def ndvi_from_collection(items, geom_point, tolerance, red_band, nir_band, 
                          name):
+    """
+    Extracts NDVI from point for a rioxarray Data Array
+
+    Parameters
+    ----------
+    items: Dictionary
+        STAC dictionary of items
+    geom_point: Point
+        Shapely point to extract values at
+    tolerance: int
+        Area to buffer point when extracting values
+    red_band: int
+        Index of the red band (0 indexed)
+    nir_band: int
+        Index of the red band (0 indexed)
+    name: str
+        Name to assign to Series
+    
+    Returns
+    -------
+    Series
+        Time series of NDVI values
+    """
     assets = items[0].to_dict()['assets'].keys()
     if len(items) > 0 and 'surface_reflectance' in assets:
         res_full = FH_Hydrosat(items, asset='surface_reflectance')
