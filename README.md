@@ -69,8 +69,17 @@ Note that Hydrosat does not currently include coverage for the entire CONUS area
 ## Convert to HTML report
 To convert the file `blog.ipynb` to an HTML report, you must have the library `nbconvert` installed (note that this library is not included in this project's environment; read the [documentation](https://nbconvert.readthedocs.io/en/latest/) for installation instructions). 
 
-Use the following bash command to convert the notebook:
+Use the following bash command to convert the notebook and post to gh-pages:
 
 ```bash
 jupyter nbconvert --to html_embed --no-input blog.ipynb
+mv blog.html index.html
+git commit -am "update blog"
+git pull
+git push origin main
+git checkout gh-pages
+git checkout main index.html
+git commit -am "updating gh-pages"
+git push origin gh-pages
+git checkout main
 ```
