@@ -14671,7 +14671,7 @@ There are two existing high profile satellite imaging platforms that provide the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="How-is-the-Fused-Land-Surface-Temperature-(LST)-Created?"><span style="color:green">How is the Fused Land Surface Temperature (LST) Created?</span><a class="anchor-link" href="#How-is-the-Fused-Land-Surface-Temperature-(LST)-Created?">&#182;</a></h1><p><font size="4">The fused LST product is algorithymically created using four thermal infrared products including two Modis products and two Landsat products (see Table 1 below).  At a basic level, the algorthims use the high frequency Modis imagery for temporal interpolation and the high resolution Landsat images are used to provide high spatial resolution.  Modis and Landsat images are downscaled using the PYDMS (1) algorithm and the imagery products are combined using the STARFM (2) algorithm.</p>
+<h1 id="How-is-the-Fused-Land-Surface-Temperature-(LST)-Created?"><span style="color:green">How is the Fused Land Surface Temperature (LST) Created?</span><a class="anchor-link" href="#How-is-the-Fused-Land-Surface-Temperature-(LST)-Created?">&#182;</a></h1><p><font size="4">The fused LST product is algorithmically created using four thermal infrared products including two Modis products and two Landsat products (see Table 1 below).  At a basic level, the algorthims use the high frequency Modis imagery for temporal interpolation and the high resolution Landsat images are used to provide high spatial resolution.  Modis and Landsat images are downscaled using the PYDMS (1) algorithm and the imagery products are combined using the STARFM (2) algorithm.</p>
 <table>
     <tr>
       <td style="font-size:14px">
@@ -14733,22 +14733,21 @@ There are two existing high profile satellite imaging platforms that provide the
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="CATD-&amp;-NDVI:-Vegetation-Health"><span style="color:green">CATD &amp; NDVI: Vegetation Health</span><a class="anchor-link" href="#CATD-&amp;-NDVI:-Vegetation-Health">&#182;</a></h2><p><font size="4">Figure 1 illustrates (left) a map of mean CATD in Corn Field 4 for the month of July 2022 and (right) a map of mean Sentinel 2 NDVI for the same period in Corn Field 4.</br></br>
+<h2 id="CATD-&amp;-NDVI:-Vegetation-Health"><span style="color:green">CATD &amp; NDVI: Vegetation Health</span><a class="anchor-link" href="#CATD-&amp;-NDVI:-Vegetation-Health">&#182;</a></h2><p><font size="4">In Figure 1 below, shown are mean CATD (left) in Corn Field 4 for the month of July 2022 and (right) mean Sentinel 2 NDVI for the same period in Corn Field 4.</br></br>
 Higher pixel values of CATD correspond to lower values of NDVI.  Lower values of NDVI are indicitave of plant water stress, artifacts from planting density or other non-vegetative objects in these pixels.  In these lower NDVI areas, we would expect the CATD to be higher due to sparse vegetation revealing warm bare soil or moisture stressed vegetation lacking the ability to cool leaf surfaces through evapotranspiration.  In these situations, LST will be markedly higher than air temperature leading to higher values of CATD.</br></br>
 When vegetation is mature and healthy, NDVI values will trend towards 1.0 and CATD values will trend towards 0.0.  Healthy vegetation has the ability to cool leaf surfaces towards the air temperature thereby minimizing the difference between LST and air temperature.</p>
 </font>
 <table>
     <tr>
-      <td>
-      <img src="./corn4-mean-catd.png" alt="Drawing" style="width: 300px; height: 400px"/>
+      <td align="left">
+      <img align="left" src="./corn4-mean-catd.png" alt="Drawing" style="width: 300px; height: 400px"/>
       </td>
-      <td>
-      <img src="./corn4-mean-ndvi.png" alt="Drawing" style="width: 300px; height: 400px"/>
+      <td align="left">
+      <img align="left" src="./corn4-mean-ndvi.png" alt="Drawing" style="width: 300px; height: 400px"/>
       </td>
-     </tr>
+    </tr>
 </table>
-<font size="4">Figure 1. Mean July 2022 CATD (Left) & NDVI (Right) for Corn Field 4.</br>The purple dot in each image represents an area where NDVI is low</br>(CATD is high) and the vegetation may be under stress.
-</font>
+<p><font size="4">Figure 1. Mean July 2022 CATD (Left) &amp; NDVI (Right) for Corn Field 4.</br>The purple dot in each image represents an area where NDVI is low</br>(CATD is high) and the vegetation may be under stress.</font></p>
 
 </div>
 </div>
@@ -14760,9 +14759,15 @@ When vegetation is mature and healthy, NDVI values will trend towards 1.0 and CA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="A-Challenge-Identified:-Spurious-Data-Filtering"><span style="color:green">A Challenge Identified: Spurious Data Filtering</span><a class="anchor-link" href="#A-Challenge-Identified:-Spurious-Data-Filtering">&#182;</a></h1><p><font size="4">We identified a spurious data filtering challenge in the PYDMS algorthim that creates the Fused LST product.  We use Corn Field 2 and the CATD product to illustrate a situation where spurious Landsat data was not identified and was incorporated by the PYDMS algorthim into the Fused LST product.  Figure 2 shows the variance of CATD pixel values within Corn Field 2 for each of the imagery products listed in Table 1 that were used to compute the fused LST product (and resultant CATD product).</br></br></p>
-<p>      Spuriously low LST pixel values from a single pydms_sharpened_landsat image acquired at the end of July, propogate a significant negative influence on LST and CATD in the fused product for the following five days.  The spurious pixel values in the Landsat image are possibly the result of an obscured atmosphere and were not identified by the algorithmic processing and were passed through to the fused algorthim and product.</p>
-<img src="catd-coponents-box.png" alt="Drawing" style="width: 600px;"/>
+<h1 id="A-Challenge-Identified:-Spurious-Data"><span style="color:green">A Challenge Identified: Spurious Data</span><a class="anchor-link" href="#A-Challenge-Identified:-Spurious-Data">&#182;</a></h1><p><font size="4">We identified a spurious data filtering challenge in the PYDMS algorthim that creates the Fused LST product.  We use Corn Field 2 and the CATD product to illustrate a situation where spurious Landsat data was not identified and was incorporated by the PYDMS algorthim into the Fused LST product.  Figure 2 shows the variance of CATD pixel values within Corn Field 2 for each of the imagery products listed in Table 1 that were used to compute the fused LST product (and resultant CATD product).</br></br></p>
+<p>Spuriously low LST pixel values from a single pydms_sharpened_landsat image acquired at the end of July, propogate a significant negative influence on LST and CATD in the fused product for the following five days.  The spurious pixel values in the Landsat image are possibly the result of an obscured atmosphere and were not identified by the algorithmic processing and were passed through to the fused algorthim and product.</p>
+<table>
+    <tr>
+      <td style="font-size:14px">
+      <img align="left" src="catd-coponents-box.png" alt="Drawing" style="width: 600px;"/>
+      </td>
+     </tr>
+</table>
 </font>
 <p><font size="4">Figure 2. Boxplots of CATD distribution for each of the imagery products that</br>
  are used to produce fused LST and CATD product.  Mean NDVI is included in the plots to show</br>
@@ -14782,25 +14787,26 @@ When vegetation is mature and healthy, NDVI values will trend towards 1.0 and CA
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1><span style="color:green">Encouraging Indications:</br>Evaluating CATD as Leading Indicator of Crop Stress</span></h1>
-<p><font size="4">Despite the spurious data filtering challenge, we observe an encouraging ability of CATD to respond to changes in vegetation health as measured by NDVI.  In Figure 3 we examine the mean CATD vs mean NDVI over Corn Field 2 for the 2022 growing season.  As expected, we see that CATD reaches is lowest values when NDVI is at a maximum reflecting full vegetation and maximum evapotranspiration which cools the leaves.  When NDVI and vegetation health is declining, CATD increases.  It is less clear, using mean corn field values, if CATD provides leading indications of NDVI behavior.</br></br></p>
+<p><font size="4">Despite the spurious data filtering challenge, we observe an encouraging ability of CATD to respond to changes in vegetation health as measured by NDVI.  In Figure 3 we examine the mean CATD vs mean NDVI over Corn Field 2 for the 2022 growing season.  As expected, we see that CATD reaches is lowest values when NDVI is at a maximum reflecting full vegetation and maximum evapotranspiration which cools the leaves.  When NDVI and vegetation health is declining, CATD increases.  It is less clear, using mean corn field values, if CATD provides leading indications of NDVI behavior.</br></br></font></p>
 <table>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn2-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
+      <img align="left" src="./corn2-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
       </td>
      </tr>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn3-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
+      <img align="left" src="./corn3-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
       </td>
-     </tr>
+    </tr>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn4-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
+      <img align="left" src="./corn4-rolling-catd.png" alt="Drawing" style="width: 600px; height: 300px"/>
       </td>
-     </tr>
+    </tr>
 </table>
-<font size="4">Figure 3. Mean CATD and NDVI across each corn field.</br>Blue background indicates when NDVI indicates mature vegetation.</font>
+<p><font size="4">Figure 3. Mean CATD and NDVI across each corn field.</br>Blue background indicates when NDVI indicates mature vegetation.</p>
+</font>
 
 </div>
 </div>
@@ -14813,25 +14819,25 @@ When vegetation is mature and healthy, NDVI values will trend towards 1.0 and CA
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Evaluating-CATD-at-Points-Locations-of-Low-NDVI"><span style="color:green">Evaluating CATD at Points Locations of Low NDVI</span><a class="anchor-link" href="#Evaluating-CATD-at-Points-Locations-of-Low-NDVI">&#182;</a></h1><p><font size="4">In Figure 3 we looked at the mean of CATD and NDVI across each corn field.  For Figure 4, we extract CATD and NDVI from a single point where NDVI values are low which may indicate poor crop health.  The patterns of CATD and NDVI are similar to that in Figure 3.  In Corn Field 2 and 3, there does not appear to be a strong CATD signal that provides an advanced indication of a coming NDVI decline.  In Corn Field 4, however, we do see an possible indication that the abrupt CATD increase during the first week of August precedes a sharp decline in NDVI during the second week of August.</p>
-</font>
 <table>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn2-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
+      <img align="left" src="./corn2-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
       </td>
-     </tr>
+    </tr>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn3-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
+      <img align="left" src="./corn3-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
       </td>
-     </tr>
+    </tr>
     <tr>
       <td style="font-size:14px">
-      <img src="./corn4-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
+      <img align="left" src="./corn4-point-catd.png" alt="Drawing" style="width: 550px; height: 500"/>
       </td>
-     </tr>
+    </tr>
 </table>
-<p><font size="4">Figure 4.  CATD and NDVI data from point locations identified by low NDVI values.</font></p>
+</font>
+<p><font size="4">Figure 4.  CATD and NDVI data extracted from point locations selected</br> due to low NDVI values.</font></p>
 
 </div>
 </div>
@@ -14843,8 +14849,8 @@ When vegetation is mature and healthy, NDVI values will trend towards 1.0 and CA
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Encouragement-and-Challenge"><span style="color:green">Encouragement and Challenge</span><a class="anchor-link" href="#Encouragement-and-Challenge">&#182;</a></h1><p><font size="4">The Fused LST and CATD products demonstrate the potential to provide advanced notice of crops under moisture stress relative to NDVI.  In Corn Field 4, CATD provided an advanced indication that vegetation health would decline.  This, however, was observed for only a point location during a single two-week period.  The finding is encouraging and warrants further research on different crop types and in different geographical locations.</p>
-<p>A challange exists in the filtering algorthim that identifies spurious data.  Refinements and improvement are needed to both identify spurious data and to limit the propogation of borderline data into the Fused LST product.  </font></p>
+<h1 id="Encouraging-Signs-and-a-Challenge"><span style="color:green">Encouraging Signs and a Challenge</span><a class="anchor-link" href="#Encouraging-Signs-and-a-Challenge">&#182;</a></h1><p><font size="4">The Fused LST and CATD products demonstrate the potential to provide advanced notice of crops under moisture stress relative to NDVI.  In Corn Field 4, CATD provided an advanced indication that vegetation health would decline.  This, however, was observed for only a point location during a single two-week period.  The finding is encouraging and warrants further research on different crop types and in different geographical locations.</p>
+<p>A challange exists in the filtering algorthim that identifies spurious data.  Refinements are needed to both identify spurious data and to limit the propogation of borderline data into the Fused LST product.  </font></p>
 
 </div>
 </div>
