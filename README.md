@@ -5,7 +5,7 @@ Can satellite remote sensing detect early stage crop stress at high resolution a
 
 Hydrosat produces a proprietary "fused" thermal infrared land surface temperature (LST) imagery product using sharpening and interpolation algorithms to produce near daily sub-30 m resolution imagery from a combination of MODIS, Sentinel and Landsat imaging platforms. This project aims to explore the input data and intermediate outputs of the algorithms used to produce the LST product in order to detect errors potentially introduced by data quality issues or the application of the algorithms while also exploring applications within agricultural contexts.
 
-See the blog post [here](https://eriktuck.github.io/lst-crop-stress-capstone/).
+See the blog post [here](https://eanderson-ei.github.io/lst-crop-stress-capstone/).
 
 # Collaborators and Acknowledgements
 
